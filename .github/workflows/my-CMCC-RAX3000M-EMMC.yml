@@ -306,7 +306,7 @@ jobs:
         else
                 echo "- 未编译luci-app-dockerman" >> release.txt
         fi
-        if [[ "${{ env.env.MASTER_OPENCLASH }}" == '-master_openclash' ]]; then
+        if [[ "${{ env.MASTER_OPENCLASH }}" == '-master_openclash' ]]; then
                 echo "- vernesong源master branch luci-app-openclash" >> release.txt
         else
                 echo "- feeds package版本luci-app-openclash" >> release.txt
