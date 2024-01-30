@@ -307,9 +307,9 @@ jobs:
                 echo "- 未编译luci-app-dockerman" >> release.txt
         fi
         if [[ "${{ env.env.MASTER_OPENCLASH }}" == '-master_openclash' ]]; then
-                echo "- 编译vernesong源master branch luci-app-openclash" >> release.txt
+                echo "- vernesong源master branch luci-app-openclash" >> release.txt
         else
-                echo "- 编译feeds package版本luci-app-dockerman" >> release.txt
+                echo "- feeds package版本luci-app-openclash" >> release.txt
         fi
         echo "release_tag=${{ env.FILE_DATE }}-${{ env.OPENWRT_NAME }}-${{ env.DEVICE_NAME }}-${{ env.EMMC_MHZ }}${{ env.EEPROM }}${{ env.WIFI_INTERFACE }}${{ env.BUILD_DOCKERMAN }}" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
