@@ -39,6 +39,11 @@ on:
         required: true
         default: false
         type: boolean
+      MASTER_OPENCLASH:
+        description: 'Master branche luci-app-openclash'
+        required: true
+        default: true
+        type: boolean
       ssh:
         description: 'SSH connection to Actions'
         required: false
@@ -116,6 +121,7 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: 加载 CLASH_SH
+      if: github.event.inputs.MASTER_OPENCLASH == 'true'
       run: |
         chmod +x $CLASH_SH
         cd openwrt
