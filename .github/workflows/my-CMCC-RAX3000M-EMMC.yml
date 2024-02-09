@@ -40,7 +40,7 @@ on:
         default: false
         type: boolean
       MASTER_OPENCLASH:
-        description: 'Master branche luci-app-openclash'
+        description: '编译vernesong仓库luci-app-openclash源码'
         required: true
         default: true
         type: boolean
