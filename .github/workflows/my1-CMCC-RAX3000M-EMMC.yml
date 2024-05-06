@@ -64,6 +64,7 @@ env:
   CONFIG_FILE: RAX3000M-eMMC_XR30-eMMC/.mtwifi-cfg.config
   DIY_P1_SH: RAX3000M-eMMC_XR30-eMMC/diy-part1.sh
   DIY_P2_SH: RAX3000M-eMMC_XR30-eMMC/diy-part2.sh
+  CLASH_SH: CMCC-RAX3000M-EMMC/preset-clash-core.sh
   SSH_ACTIONS: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
