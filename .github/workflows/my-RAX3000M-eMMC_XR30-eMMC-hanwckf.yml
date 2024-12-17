@@ -53,6 +53,11 @@ on:
         required: true
         default: false
         type: boolean
+      MASTER_OPENCLASH:
+        description: '编译vernesong仓库luci-app-openclash源码'
+        required: true
+        default: true
+        type: boolean
       ssh:
         description: 'SSH connection to Actions'
         required: false
@@ -72,6 +77,7 @@ env:
   CONFIG_FILE: RAX3000M-eMMC_XR30-eMMC-hanwckf/.mtwifi-cfg.config
   DIY_P1_SH: RAX3000M-eMMC_XR30-eMMC-hanwckf/diy-part1.sh
   DIY_P2_SH: RAX3000M-eMMC_XR30-eMMC-hanwckf/diy-part2.sh
+  CLASH_SH: CMCC-RAX3000M-EMMC/preset-clash-core.sh
   SSH_ACTIONS: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -144,6 +150,14 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
+    - name: 加载 CLASH_SH
+      if: github.event.inputs.MASTER_OPENCLASH == 'true'
+      run: |
+        chmod +x $CLASH_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$CLASH_SH
+        echo "MASTER_OPENCLASH=-master_openclash" >> $GITHUB_ENV
+  
     - name: 设置RAX3000M-eMMC的eMMC使用highspeed
       run: |
         cd openwrt
