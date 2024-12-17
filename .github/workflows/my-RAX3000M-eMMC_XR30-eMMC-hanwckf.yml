@@ -326,6 +326,11 @@ jobs:
         else
                 echo "- 未编译luci-app-dockerman" >> release.txt
         fi
+        if [[ "${{ env.MASTER_OPENCLASH }}" == '-master_openclash' ]]; then
+                echo "- vernesong的master branch源码编译luci-app-openclash" >> release.txt
+        else
+                echo "- feeds package源码编译luci-app-openclash" >> release.txt
+        fi
         echo "release_tag=${{ env.FILE_DATE }}-${{ env.OPENWRT_NAME }}-${{ env.UPLOAD_TAG_NAME }}${{ env.WIFI_VERSION }}${{ env.EEPROM }}${{ env.BUILD_DOCKERMAN }}" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
