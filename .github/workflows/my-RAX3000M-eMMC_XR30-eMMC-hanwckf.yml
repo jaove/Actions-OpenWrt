@@ -137,7 +137,15 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: 更新 & 安装 feeds
+    - name: 加载 CLASH_SH
+      if: github.event.inputs.MASTER_OPENCLASH == 'true'
+      run: |
+        chmod +x $CLASH_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$CLASH_SH
+        echo "MASTER_OPENCLASH=-master_openclash" >> $GITHUB_ENV
+  
+      - name: 更新 & 安装 feeds
       run: |
         cd openwrt
         ./scripts/feeds update -a
@@ -150,14 +158,6 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    - name: 加载 CLASH_SH
-      if: github.event.inputs.MASTER_OPENCLASH == 'true'
-      run: |
-        chmod +x $CLASH_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$CLASH_SH
-        echo "MASTER_OPENCLASH=-master_openclash" >> $GITHUB_ENV
-  
     - name: 设置RAX3000M-eMMC的eMMC使用highspeed
       run: |
         cd openwrt
