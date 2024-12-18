@@ -145,7 +145,7 @@ jobs:
         $GITHUB_WORKSPACE/$CLASH_SH
         echo "MASTER_OPENCLASH=-master_openclash" >> $GITHUB_ENV
   
-      - name: 更新 & 安装 feeds
+    - name: 更新 & 安装 feeds
       run: |
         cd openwrt
         ./scripts/feeds update -a
