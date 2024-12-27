@@ -142,7 +142,7 @@ jobs:
       uses: stupidloud/cachewrtbuild@main
       with:
         ccache: 'true'
-        prefix: ${{ GITHUB_WORKSPACE }}/openwrt
+        prefix: ${{ github.workspace }}/openwrt
 
 
     - name: 加载feeds.conf.default & DIY_P1_SH
