@@ -96,8 +96,8 @@ jobs:
       uses: actions/checkout@main
 
       
-      with:
-        fetch-depth: 0
+      # with:
+      #   fetch-depth: 0
 
 
     - name: 初始化编译环境
@@ -138,11 +138,11 @@ jobs:
 
 
     # 缓存工具链加速编译
-    - name: Cache
-      uses: stupidloud/cachewrtbuild@main
-      with:
-        ccache: 'true'
-        prefix: ${{ github.workspace }}/openwrt
+    #- name: Cache
+    #  uses: stupidloud/cachewrtbuild@main
+    #  with:
+    #    ccache: 'true'
+    #    prefix: ${{ github.workspace }}/openwrt
 
 
     - name: 加载feeds.conf.default & DIY_P1_SH
